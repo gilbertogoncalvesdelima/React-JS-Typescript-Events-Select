@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+const App: React.FunctionComponent = () => {
+  const [selectedOption, setSelectedOption] = useState<String>();
+
+  // This function is triggered when the select changes
+  const selectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = event.target.value;
+    setSelectedOption(value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles.container}>
+      <select onChange={selectChange} style={styles.select}>
+        <option selected disabled>
+          Choose one
+        </option>
+        <option value="blue">Blue</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+        <option value="EngenheiroYoutuber">Responsável</option>
+      </select>
+      {selectedOption && <h2 style={styles.result}>{selectedOption}</h2>}
     </div>
   );
-}
+};
 
 export default App;
+
+// Just some styles
+const styles: { [name: string]: React.CSSProperties } = {
+  container: {
+    marginTop: 50,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  select: {
+    padding: 5,
+    width: 200,
+  },
+  result: {
+    marginTop: 30,
+  },
+};
