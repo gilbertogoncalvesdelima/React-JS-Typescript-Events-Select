@@ -13,4 +13,7 @@ lista suspensa, o valor selecionado será exibido.
 # Comando para gerar o projeto
 npx create-react-app (Nome do Projeto) --template typescript
 
-# react_typescript_evento_select_onchange
+# Para verificar o projeto clique no link.
+npm run build
+
+https://react-typescript-evento-select-onchange.netlify.app/
